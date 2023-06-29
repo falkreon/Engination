@@ -1,7 +1,7 @@
 {
 	"variants": {
 		"": {
-			"model": "engination:item/landing_pad"
+			"model": "engination:block/landing_pad"
 		}
 	}
 }

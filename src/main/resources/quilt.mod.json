@@ -21,7 +21,8 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "blue.endless.engination.Engination"
+			"init": "blue.endless.engination.Engination",
+			"client_init": "blue.endless.engination.client.EnginationClient"
 		},
 		"depends": [
 			{

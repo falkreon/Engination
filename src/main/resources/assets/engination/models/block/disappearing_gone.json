@@ -1,6 +1,6 @@
 {
 	"parent": "block/cross",
 	"textures": {
-		"cross": "engination:blocks/cosmetic/tourian/disappearing_gone"
+		"cross": "engination:block/disappearing/gone"
 	}
 }

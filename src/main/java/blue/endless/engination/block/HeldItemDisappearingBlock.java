@@ -3,7 +3,9 @@ package blue.endless.engination.block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -26,9 +28,20 @@ public class HeldItemDisappearingBlock extends DisappearingBlock{
 	
 	@Override
 	public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-		if (world.isClient()) return; 
+		System.out.println("Break: "+player.getStackInHand(Hand.MAIN_HAND));
+		if (world.isClient()) return;
 		if (isTrigger(player.getStackInHand(Hand.MAIN_HAND))) {
 			this.disappearChainReaction(world, pos);
+		}
+	}
+	
+	@Override
+	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+		if (player.isCreative()) {
+			if (!world.isClient()) this.disappearChainReaction(world, pos);
+			return ActionResult.SUCCESS;
+		} else {
+			return ActionResult.PASS;
 		}
 	}
 	

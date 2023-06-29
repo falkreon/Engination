@@ -1,6 +1,6 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"all": "engination:blocks/disappearing/stone_sword"
+		"all": "engination:block/disappearing/stone_sword"
 	}
 }

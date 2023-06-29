@@ -1,6 +1,6 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"all": "engination:blocks/disappearing/gold_sword"
+		"all": "engination:block/disappearing/gold_sword"
 	}
 }

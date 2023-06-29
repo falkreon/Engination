@@ -1,18 +1,20 @@
 package blue.endless.engination.client;
 
+import org.quiltmc.loader.api.ModContainer;
+import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
+import org.quiltmc.qsl.block.extensions.api.client.BlockRenderLayerMap;
+
 import blue.endless.engination.block.EnginationBlocks;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 
 public class EnginationClient implements ClientModInitializer {
 	
 	@Override
-	public void onInitializeClient() {
+	public void onInitializeClient(ModContainer mod) {
 		for(Block block : EnginationBlocks.BLOCK_GROUPS.get("disappearing")) {
-			BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutoutMipped());
+			BlockRenderLayerMap.put(RenderLayer.getCutoutMipped(), block);
 		}
-		BlockRenderLayerMap.INSTANCE.putBlock(EnginationBlocks.TOMATO_PLANT, RenderLayer.getCutoutMipped());
+		BlockRenderLayerMap.put(RenderLayer.getCutoutMipped(), EnginationBlocks.TOMATO_PLANT);
 	}
 }

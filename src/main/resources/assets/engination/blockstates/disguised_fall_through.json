@@ -1,10 +1,10 @@
 {
 	"variants": {
 		"disappeared=true": {
-			"model": "engination:item/disappearing_gone"
+			"model": "engination:block/disappearing_gone"
 		},
 		"disappeared=false": {
-			"model": "engination:item/disguised_fall_through"
+			"model": "engination:block/disguised_fall_through"
 		}
 	}
 }

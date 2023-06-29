@@ -1,7 +1,7 @@
 {
 	"variants": {
 		"": {
-			"model": "engination:item/fast_road"
+			"model": "engination:block/fast_road"
 		}
 	}
 }

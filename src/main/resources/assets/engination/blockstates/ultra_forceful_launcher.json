@@ -1,7 +1,7 @@
 {
 	"variants": {
 		"": {
-			"model": "engination:item/ultra_forceful_launcher"
+			"model": "engination:block/ultra_forceful_launcher"
 		}
 	}
 }

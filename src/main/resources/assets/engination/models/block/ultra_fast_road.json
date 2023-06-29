@@ -1,6 +1,6 @@
 {
 	"parent": "block/cube_all",
 	"textures": {
-		"all" : "engination:blocks/ultra_fast_road"
+		"all" : "engination:block/road/ultra_fast"
 	}
 }

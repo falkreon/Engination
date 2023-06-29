@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"": {
+			"model": "engination:block/disappearing_fall_through"
+		}
+	}
+}
