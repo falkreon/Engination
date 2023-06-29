@@ -1,6 +1,0 @@
-{
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "engination:blocks/cosmetic/oneup/ghost_wood"
-	}
-}
