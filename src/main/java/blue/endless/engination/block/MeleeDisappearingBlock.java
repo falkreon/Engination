@@ -21,12 +21,13 @@ public class MeleeDisappearingBlock extends DisappearingBlock {
 	
 	@Override
 	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-		if (player.isCreative()) {
-			if (!world.isClient()) this.disappearChainReaction(world, pos);
-			return ActionResult.SUCCESS;
-		} else {
-			return ActionResult.PASS;
+		if (world.isClient()) return ActionResult.SUCCESS;
+		
+		if (player.isCreative() || !player.getAbilities().allowModifyWorld) {
+			this.disappearChainReaction(world, pos);
 		}
+		
+		return ActionResult.PASS;
 	}
 	
 	//@Override

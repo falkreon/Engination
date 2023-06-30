@@ -28,7 +28,6 @@ public class HeldItemDisappearingBlock extends DisappearingBlock{
 	
 	@Override
 	public void onBlockBreakStart(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-		System.out.println("Break: "+player.getStackInHand(Hand.MAIN_HAND));
 		if (world.isClient()) return;
 		if (isTrigger(player.getStackInHand(Hand.MAIN_HAND))) {
 			this.disappearChainReaction(world, pos);
@@ -37,13 +36,15 @@ public class HeldItemDisappearingBlock extends DisappearingBlock{
 	
 	@Override
 	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-		if (player.isCreative()) {
-			if (!world.isClient()) this.disappearChainReaction(world, pos);
-			return ActionResult.SUCCESS;
-		} else {
-			return ActionResult.PASS;
+		if (world.isClient()) return ActionResult.SUCCESS;
+		
+		if (isTrigger(player.getStackInHand(Hand.MAIN_HAND))) {
+			this.disappearChainReaction(world, pos);
 		}
+		return ActionResult.PASS;
 	}
+	
+	
 	
 	//@Override
 	public ChainReactionType getChainReactionType() {

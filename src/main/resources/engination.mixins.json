@@ -1,0 +1,14 @@
+{
+	"required": false,
+	"minVersion": "0.8",
+	"package": "blue.endless.engination.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"RestrictedLeftClickMixin"
+	],
+	"client": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

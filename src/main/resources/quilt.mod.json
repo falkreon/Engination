@@ -38,5 +38,6 @@
 				"versions": ">=1.20"
 			}
 		]
-	}
+	},
+	"mixin": "engination.mixins.json"
 }
