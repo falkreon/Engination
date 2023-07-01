@@ -1,0 +1,6 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"all" : "engination:block/item_box/depleted"
+	}
+}

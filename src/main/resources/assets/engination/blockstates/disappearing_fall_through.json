@@ -1,6 +1,9 @@
 {
 	"variants": {
-		"": {
+		"disappeared=true": {
+			"model": "engination:block/disappearing_gone"
+		},
+		"disappeared=false": {
 			"model": "engination:block/disappearing_fall_through"
 		}
 	}

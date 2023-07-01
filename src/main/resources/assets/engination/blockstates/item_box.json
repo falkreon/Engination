@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"depleted=true": {
+			"model": "engination:block/item_box_depleted"
+		},
+		"depleted=false": {
+			"model": "engination:block/item_box"
+		}
+	}
+}
