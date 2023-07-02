@@ -9,6 +9,7 @@ import io.github.cottonmc.cotton.gui.client.BackgroundPainter;
 import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
 import io.github.cottonmc.cotton.gui.widget.WPlayerInvPanel;
 import io.github.cottonmc.cotton.gui.widget.WItemSlot;
+import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandlerContext;
@@ -24,6 +25,9 @@ public class ItemBoxGuiDescription extends SyncedGuiDescription {
 	public ItemBoxGuiDescription(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
 		super(Engination.ITEM_BOX_SCREEN_HANDLER, syncId, playerInventory, getBlockInventory(context, INVENTORY_SIZE), getBlockPropertyDelegate(context));
 		
+		this.setTitleColor(0xFF_FFFFFF);
+		this.setTitleAlignment(HorizontalAlignment.CENTER);
+		
 		WPlainPanel root = new WPlainPanel();
 		setRootPanel(root);
 		//root.setSize(100, 100);
@@ -31,15 +35,15 @@ public class ItemBoxGuiDescription extends SyncedGuiDescription {
 		
 		
 		grid = WItemSlot.of(blockInventory, 0, 3, 3);
-		root.add(grid, 56, 18);
+		root.add(grid, 60, 18);
 		
 		playerInventoryContainer = new WPlainPanel();
 		playerInventoryContainer.setInsets(Insets.ROOT_PANEL);
-		playerInventoryContainer.setSize(162, 87);
 		
-		playerInventoryPanel = createPlayerInventoryPanel();
-		playerInventoryContainer.add(playerInventoryPanel, 0, 0);
-		root.add(playerInventoryContainer, 0, 84);
+		playerInventoryPanel = createPlayerInventoryPanel(false);
+		
+		playerInventoryContainer.add(playerInventoryPanel, 0, 0, 162, 87);
+		root.add(playerInventoryContainer, 0, 84, 176, 90);
 
 		root.validate(this);
 	}
