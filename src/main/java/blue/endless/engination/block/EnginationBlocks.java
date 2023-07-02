@@ -32,6 +32,7 @@ public class EnginationBlocks {
 	
 	public static TomatoBlock TOMATO_PLANT = null;
 	
+	public static Block ITEM_BOX_BLOCK;
 	public static BlockEntityType<ItemBoxBlockEntity> ITEM_BOX_ENTITY;
 	
 	public static void init() {
@@ -59,7 +60,7 @@ public class EnginationBlocks {
 		block("disappearing", "fall_through", new FallThroughBlock(), Engination.ENGINATION_GADGETS);
 		block("disappearing", "disguised_fall_through", new FallThroughBlock(), Engination.ENGINATION_GADGETS);
 		
-		Block itemBox = block("question", "item_box", new InventoryItemBox(), Engination.ENGINATION_GADGETS);
+		ITEM_BOX_BLOCK =  block("question", "item_box", new InventoryItemBox(), Engination.ENGINATION_GADGETS);
 		
 		block("road", "road", new FastTravelBlock(0.2f), Engination.ENGINATION_GADGETS);
 		block("road", "fast_road", new FastTravelBlock(0.4f), Engination.ENGINATION_GADGETS);
@@ -68,7 +69,8 @@ public class EnginationBlocks {
 		TOMATO_PLANT = new TomatoBlock(Block.Settings.copy(Blocks.WHEAT));
 		Registry.register(Registries.BLOCK, new Identifier("engination", "tomato_plant"), TOMATO_PLANT);
 		
-		ITEM_BOX_ENTITY = QuiltBlockEntityTypeBuilder.create(ItemBoxBlockEntity::new, itemBox).build();
+		
+		ITEM_BOX_ENTITY = QuiltBlockEntityTypeBuilder.create(ItemBoxBlockEntity::new, ITEM_BOX_BLOCK).build();
 		Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("engination", "item_box"), ITEM_BOX_ENTITY);
 	}
 

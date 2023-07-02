@@ -11,7 +11,10 @@ repositories {
 		name 'Quilt'
 		url 'https://maven.quiltmc.org/repository/release'
 	}
-	
+	maven {
+		name = "CottonMC"
+		url = "https://server.bbkr.space/artifactory/libs-release"
+	}
 }
 
 dependencies {
@@ -21,6 +24,7 @@ dependencies {
 	modImplementation "org.quiltmc:quilt-loader:${project.loader_version}"
 	//modImplementation "org.quiltmc:qsl:${qsl_version}+${minecraft_version}"
 	modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${quilted_fabric_api_version}-${minecraft_version}"
+	modImplementation include("io.github.cottonmc:LibGui:${libgui_version}")
 }
 
 processResources {
