@@ -1,6 +1,7 @@
 package blue.endless.engination.block;
 
 import blue.endless.engination.Engination;
+import blue.endless.engination.SoundEventDebouncer;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -30,10 +31,12 @@ public class LauncherBlock extends PressureTriggeredBlock {
 		double newY = adjustScalar(entity.getVelocity().y, force*0.6);
 		if (newY!=entity.getVelocity().y) {
 			entity.setVelocity(entity.getVelocity().x, newY, entity.getVelocity().z);
-			//TODO: Register the mario jump sound
+			
 			//world.playSound(entity.x, entity.y, entity.z, Engination.SOUND_LAUNCH, net.minecraft.sound.SoundCategory.PLAYER, 0.5F, world.getRandom().nextFloat() * 0.4F + 1.0F);
 			Vec3d vec = entity.getPos();
-			world.playSound(vec.x, vec.y, vec.z, Engination.SOUND_JUMP, SoundCategory.PLAYERS, 0.5f, world.getRandom().nextFloat() * 0.4F + 1.0F, true);
+			
+			SoundEventDebouncer.play(entity, world, pos, Engination.SOUND_JUMP);
+			//world.playSound(vec.x, vec.y, vec.z, Engination.SOUND_JUMP, SoundCategory.PLAYERS, 0.5f, world.getRandom().nextFloat() * 0.4F + 1.0F, true);
 		}
 	}
 	

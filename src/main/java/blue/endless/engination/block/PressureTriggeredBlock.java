@@ -44,7 +44,8 @@ public abstract class PressureTriggeredBlock extends Block {
 	public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
 		if (!(entity instanceof LivingEntity)) return;
 		if (entity instanceof PlayerEntity) {
-			if (world.isClient()) trigger(world, pos, (LivingEntity)entity);
+			//if (world.isClient())
+			trigger(world, pos, (LivingEntity)entity);
 		} else {
 			if (!world.isClient()) trigger(world, pos, (LivingEntity)entity);
 		}

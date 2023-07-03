@@ -1,7 +1,10 @@
 package blue.endless.engination.block;
 
+import blue.endless.engination.Engination;
+import blue.endless.engination.SoundEventDebouncer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
@@ -56,13 +59,14 @@ public class ItemBox extends VentralPressureTriggeredBlock {
 	}
 	
 	@Override
-	public void onPressureActivate(BlockState state, World world, BlockPos pos) {
+	public void onPressureActivate(Entity entity, BlockState state, World world, BlockPos pos) {
 		if (!state.get(DEPLETED)) {
 			world.setBlockState(pos, state.with(DEPLETED, true), Block.NOTIFY_ALL);
 			world.syncWorldEvent(null, WorldEvents.BLOCK_BROKEN, pos, getRawIdFromState(state));
 			world.scheduleBlockTick(pos, this, reappearDelay, TickPriority.LOW);
 			dispense(state, world, pos);
 		}
+		SoundEventDebouncer.play(entity, world, pos, Engination.SOUND_ITEM_BOX);
 	}
 	
 	public void setReappearDelay(int delay) {

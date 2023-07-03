@@ -6,6 +6,7 @@
 	"subtitles.engination.projectile_throw"   : "Tomato flies",
 	"subtitles.engination.squish"             : "Tomato squishes",
 	"subtitles.engination.launcher_activate"  : "Launcher launches",
+	"subtitles.engination.item_box"           : "Item Box hit",
 	
 	"block.engination.conveyor"                : "Conveyor",
 	"block.engination.fast_conveyor"           : "Fast Conveyor",

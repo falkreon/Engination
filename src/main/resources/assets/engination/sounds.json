@@ -22,5 +22,12 @@
 			"engination:jump"
 		],
 		"subtitle": "subtitles.engination.launcher_activate"
+	},
+	"item_box": {
+		"category": "block",
+		"sounds": [
+			"engination:item_box"
+		],
+		"subtitle": "subtitles.engination.item_box"
 	}
 }

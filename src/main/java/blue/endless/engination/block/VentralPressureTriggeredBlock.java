@@ -35,12 +35,12 @@ public class VentralPressureTriggeredBlock extends Block {
 		return result;
 	}
 	
-	public void onPressureActivate(BlockState state, World world, BlockPos pos) {
+	public void onPressureActivate(Entity entity, BlockState state, World world, BlockPos pos) {
 	}
 	
 	@Override
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-		if (!world.isClient()) onPressureActivate(state, world, pos);
+		if (!world.isClient()) onPressureActivate(entity, state, world, pos);
 	}
 	
 	@Override

@@ -26,6 +26,7 @@ public class Engination implements ModInitializer {
 	public static SoundEvent SOUND_JUMP;
 	public static SoundEvent SOUND_THROW;
 	public static SoundEvent SOUND_SQUISH;
+	public static SoundEvent SOUND_ITEM_BOX;
 	
 	public static ItemGroup ENGINATION_GADGETS = 
 			FabricItemGroup.builder()
@@ -50,10 +51,12 @@ public class Engination implements ModInitializer {
 		SOUND_JUMP =   SoundEvent.createVariableRangeEvent(new Identifier("engination", "launcher_activate"));
 		SOUND_THROW =  SoundEvent.createVariableRangeEvent(new Identifier("engination", "projectile_throw"));
 		SOUND_SQUISH = SoundEvent.createVariableRangeEvent(new Identifier("engination", "squish"));
+		SOUND_ITEM_BOX=SoundEvent.createVariableRangeEvent(new Identifier("engination", "item_box"));
 		
 		Registry.register(Registries.SOUND_EVENT, "engination:launcher_activate", SOUND_JUMP);
 		Registry.register(Registries.SOUND_EVENT, "engination:projectile_throw",  SOUND_THROW);
 		Registry.register(Registries.SOUND_EVENT, "engination:squish",            SOUND_SQUISH);
+		Registry.register(Registries.SOUND_EVENT, new Identifier("engination", "item_box"), SOUND_ITEM_BOX);
 		
 		EnginationBlocks.init();
 		EnginationItems.init();
