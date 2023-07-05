@@ -25,10 +25,6 @@ public class ItemBoxBlockEntity extends BlockEntity implements InventoryProvider
 	
 	public ItemBoxBlockEntity(BlockPos pos, BlockState state) {
 		super(EnginationBlocks.ITEM_BOX_ENTITY, pos, state);
-		
-		//TODO: This is for testing. Remove later
-		//inventoryList.set(3, new ItemStack(Items.EMERALD, 3));
-		//inventoryList.set(8, new ItemStack(Items.GOLD_NUGGET, 8));
 	}
 	
 	@Override
@@ -45,12 +41,12 @@ public class ItemBoxBlockEntity extends BlockEntity implements InventoryProvider
 		
 		BlockState state = world.getBlockState(pos);
 		if (isEmpty) {
-			if (state.isOf(EnginationBlocks.ITEM_BOX_BLOCK) && !state.get(ItemBox.DEPLETED)) {
+			if ((state.getBlock() instanceof ItemBox) && !state.get(ItemBox.DEPLETED)) {
 				world.setBlockState(pos, state.with(ItemBox.DEPLETED, true));
 			}
 		} else {
 			// Make sure the item box visibly becomes full
-			if (state.isOf(EnginationBlocks.ITEM_BOX_BLOCK) && state.get(ItemBox.DEPLETED)) {
+			if ((state.getBlock() instanceof ItemBox) && state.get(ItemBox.DEPLETED)) {
 				world.scheduleBlockTick(pos, state.getBlock(), 1);
 			}
 		}

@@ -1,5 +1,6 @@
 package blue.endless.engination;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -32,14 +33,11 @@ public class Engination implements ModInitializer {
 			FabricItemGroup.builder()
 			.name(Text.literal("Engination")) //Literal is okay here because it's a proper noun
 			.entries((params, collector) -> {
-				for(Map.Entry<String, List<Block>> entry : EnginationBlocks.BLOCK_GROUPS.entrySet()) {
-					for(Block b : entry.getValue()) {
-						collector.addItem(b);
-					}
+				for(Block block : EnginationBlocks.BY_GROUP.values()) {
+					collector.addItem(block);
 				}
-				//TODO: Add gadgets
 			})
-			.icon(()->new ItemStack(EnginationBlocks.BLOCK_GROUPS.get("launcher").get(0)))
+			.icon(()->new ItemStack(EnginationBlocks.BY_GROUP.get("launcher").iterator().next()))
 			.build();
 	
 	public static ScreenHandlerType<ItemBoxGuiDescription> ITEM_BOX_SCREEN_HANDLER;

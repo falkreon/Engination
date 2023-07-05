@@ -24,6 +24,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
 public class InventoryItemBox extends ItemBox implements BlockEntityProvider {
+	private boolean isCreative = false;
 	
 	public InventoryItemBox() {
 		this.setReappearDelay(10);
@@ -48,7 +49,12 @@ public class InventoryItemBox extends ItemBox implements BlockEntityProvider {
 		int i = world.getRandom().nextInt(sourceSlots.size());
 		if (i>=sourceSlots.size()) i=0; //At the risk of making slot zero more likely, this will squash any off-by-1 bugs
 		int slotToTake = sourceSlots.get(i);
-		ItemStack stack = inv.removeStack(slotToTake, 1);
+		ItemStack stack = ItemStack.EMPTY;
+		if (isCreative) {
+			stack = inv.getStack(slotToTake).withCount(1); // implicit copy
+		} else {
+			stack = inv.removeStack(slotToTake, 1);
+		}
 		
 		this.dispenseItem(world, pos, stack, KICK_DOUBLE);
 	}
@@ -78,6 +84,10 @@ public class InventoryItemBox extends ItemBox implements BlockEntityProvider {
 	
 	@Override
 	public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+
+		if (!player.canModifyBlocks()) return ActionResult.PASS;
+		if (isCreative && !player.getAbilities().creativeMode) return ActionResult.PASS;
+		
 		player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
 		return ActionResult.SUCCESS;
 	}
@@ -94,5 +104,15 @@ public class InventoryItemBox extends ItemBox implements BlockEntityProvider {
 
 			super.onStateReplaced(state, world, pos, newState, moved);
 		}
+	}
+	
+	public boolean isCreative() {
+		return isCreative;
+	}
+	
+	public static InventoryItemBox makeCreative() {
+		InventoryItemBox result = new InventoryItemBox();
+		result.isCreative = true;
+		return result;
 	}
 }

@@ -1,0 +1,38 @@
+{
+	"variants": {
+		"color=green,facing=up"   : { "model": "engination:block/green_warp_pipe_entrance", "x":   0, "y":  0 },
+		"color=green,facing=down" : { "model": "engination:block/green_warp_pipe_entrance", "x": 180, "y":  0 },
+		"color=green,facing=north": { "model": "engination:block/green_warp_pipe_entrance", "x":  90, "y":  0 },
+		"color=green,facing=east" : { "model": "engination:block/green_warp_pipe_entrance", "x":  90, "y": 90 },
+		"color=green,facing=south": { "model": "engination:block/green_warp_pipe_entrance", "x":  90, "y":180 },
+		"color=green,facing=west" : { "model": "engination:block/green_warp_pipe_entrance", "x":  90, "y":270 },
+		
+		"color=orange,facing=up"   : { "model": "engination:block/orange_warp_pipe_entrance", "x":   0, "y":  0 },
+		"color=orange,facing=down" : { "model": "engination:block/orange_warp_pipe_entrance", "x": 180, "y":  0 },
+		"color=orange,facing=north": { "model": "engination:block/orange_warp_pipe_entrance", "x":  90, "y":  0 },
+		"color=orange,facing=east" : { "model": "engination:block/orange_warp_pipe_entrance", "x":  90, "y": 90 },
+		"color=orange,facing=south": { "model": "engination:block/orange_warp_pipe_entrance", "x":  90, "y":180 },
+		"color=orange,facing=west" : { "model": "engination:block/orange_warp_pipe_entrance", "x":  90, "y":270 },
+		
+		"color=blue,facing=up"   : { "model": "engination:block/blue_warp_pipe_entrance", "x":   0, "y":  0 },
+		"color=blue,facing=down" : { "model": "engination:block/blue_warp_pipe_entrance", "x": 180, "y":  0 },
+		"color=blue,facing=north": { "model": "engination:block/blue_warp_pipe_entrance", "x":  90, "y":  0 },
+		"color=blue,facing=east" : { "model": "engination:block/blue_warp_pipe_entrance", "x":  90, "y": 90 },
+		"color=blue,facing=south": { "model": "engination:block/blue_warp_pipe_entrance", "x":  90, "y":180 },
+		"color=blue,facing=west" : { "model": "engination:block/blue_warp_pipe_entrance", "x":  90, "y":270 },
+		
+		"color=gray,facing=up"   : { "model": "engination:block/gray_warp_pipe_entrance", "x":   0, "y":  0 },
+		"color=gray,facing=down" : { "model": "engination:block/gray_warp_pipe_entrance", "x": 180, "y":  0 },
+		"color=gray,facing=north": { "model": "engination:block/gray_warp_pipe_entrance", "x":  90, "y":  0 },
+		"color=gray,facing=east" : { "model": "engination:block/gray_warp_pipe_entrance", "x":  90, "y": 90 },
+		"color=gray,facing=south": { "model": "engination:block/gray_warp_pipe_entrance", "x":  90, "y":180 },
+		"color=gray,facing=west" : { "model": "engination:block/gray_warp_pipe_entrance", "x":  90, "y":270 },
+		
+		"color=clear,facing=up"   : { "model": "engination:block/clear_warp_pipe_entrance", "x":   0, "y":  0 },
+		"color=clear,facing=down" : { "model": "engination:block/clear_warp_pipe_entrance", "x": 180, "y":  0 },
+		"color=clear,facing=north": { "model": "engination:block/clear_warp_pipe_entrance", "x":  90, "y":  0 },
+		"color=clear,facing=east" : { "model": "engination:block/clear_warp_pipe_entrance", "x":  90, "y": 90 },
+		"color=clear,facing=south": { "model": "engination:block/clear_warp_pipe_entrance", "x":  90, "y":180 },
+		"color=clear,facing=west" : { "model": "engination:block/clear_warp_pipe_entrance", "x":  90, "y":270 }
+	}
+}

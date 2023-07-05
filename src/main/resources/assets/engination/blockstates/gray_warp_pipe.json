@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"axis_or_node=y": { "model": "engination:block/gray_warp_pipe", "x":  0, "y":  0 },
+		"axis_or_node=z": { "model": "engination:block/gray_warp_pipe", "x": 90, "y":  0 },
+		"axis_or_node=x": { "model": "engination:block/gray_warp_pipe", "x": 90, "y": 90 },
+		"axis_or_node=node":  { "model": "engination:block/gray_warp_pipe_node" }
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/cube_column",
+	"textures": {
+		"end": "engination:block/warp_pipe/green_end",
+		"side"  : "engination:block/warp_pipe/green",
+		"particle": "engination:block/warp_pipe/green"
+	}
+}

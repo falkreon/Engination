@@ -1,0 +1,7 @@
+{
+	"parent": "engination:block/warp_pipe_entrance",
+	"textures": {
+		"side": "engination:block/warp_pipe/blue",
+		"end" : "engination:block/warp_pipe/blue_end"
+	}
+}
