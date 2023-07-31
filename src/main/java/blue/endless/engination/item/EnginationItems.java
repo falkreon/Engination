@@ -1,14 +1,19 @@
 package blue.endless.engination.item;
 
 import blue.endless.engination.block.EnginationBlocks;
+import blue.endless.engination.block.SparkBlock;
 import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
 public class EnginationItems {
+	
+	public static final TagKey<Item> SPARKLINE_ACTIVATORS = TagKey.of(RegistryKeys.ITEM, SparkBlock.ACTIVATION_ID);
 	
 	public static TomatoItem TOMATO = new TomatoItem(false);
 	public static TomatoItem CREATIVE_TOMATO = new TomatoItem(true);

@@ -48,6 +48,9 @@ public class MountDisappearingBlock extends DisappearingBlock {
 			//any nonliving entity that is capable of being ridden should trigger disappearance.
 			if (entity instanceof AbstractMinecartEntity || entity instanceof BoatEntity) {
 				this.disappearChainHorizontal(world, pos);
+			} else if (!(entity instanceof LivingEntity) && entity.hasPlayerRider()) {
+				//If it's unalive but a player is riding it, trigger.
+				this.disappearChainHorizontal(world, pos);
 			}
 		}
 	}

@@ -11,6 +11,7 @@ import blue.endless.engination.VoxelHelper;
 import blue.endless.engination.block.entity.SparkBlockEntity;
 import blue.endless.engination.client.PlayerLockedBehaviorManager;
 import blue.endless.engination.client.SparklineLockedBehavior;
+import blue.endless.engination.item.EnginationItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderType;
@@ -19,8 +20,10 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -31,6 +34,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class SparkBlock extends Block implements BlockEntityProvider {
+	public static final Identifier ACTIVATION_ID = new Identifier("engination", "sparkline_activator");
 	//6px x 6px centered cube
 	public static final VoxelShape HITBOX = VoxelHelper.centeredCube(3);
 	public static final int MAX_CHAINED_BEAMS = 40;
@@ -55,6 +59,18 @@ public class SparkBlock extends Block implements BlockEntityProvider {
 	
 	public void trigger(World world, BlockPos pos, BlockState state, Entity entity) {
 		if (world.isClient && entity instanceof PlayerEntity player) {
+			//Search the player euqipment for sparkline activation
+			
+			
+			boolean activated = false;
+			for(int slot : PlayerInventory.ARMOR_SLOTS) {
+				ItemStack stack = player.getInventory().getArmorStack(slot);
+				if (stack.isIn(EnginationItems.SPARKLINE_ACTIVATORS)) {
+					activated = true;
+				}
+			}
+			if (!activated) return;
+			
 			Optional<BlockPos> next = world.getBlockEntity(pos, EnginationBlocks.SPARK_BLOCK_ENTITY).map(it -> it.next);
 			if (next.isEmpty()) return;
 			PlayerLockedBehaviorManager.lockPlayer(player, new SparklineLockedBehavior(), pos);
