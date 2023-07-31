@@ -41,6 +41,7 @@ public class EnginationClient implements ClientModInitializer {
 			
 		BlockRenderLayerMap.put(RenderLayer.getCutoutMipped(), EnginationBlocks.TOMATO_PLANT);
 		BlockRenderLayerMap.put(RenderLayer.getCutoutMipped(), EnginationBlocks.SPARK_BLOCK);
+		BlockRenderLayerMap.put(RenderLayer.getCutoutMipped(), EnginationBlocks.ONE_SIDED);
 		ColorProviderRegistry.BLOCK.register((state, view, pos, i) -> {
 			return view.getBlockEntity(pos, EnginationBlocks.SPARK_BLOCK_ENTITY)
 					.map(it -> it.color)

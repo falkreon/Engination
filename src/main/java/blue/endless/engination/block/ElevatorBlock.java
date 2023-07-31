@@ -41,7 +41,7 @@ import net.minecraft.world.World;
 
 public class ElevatorBlock extends Block {
 	public static final int MAX_DISTANCE = 32;
-	public static final int TELEPORT_COOLDOWN_TICKS = 20;
+	public static final int TELEPORT_COOLDOWN_TICKS = 10;
 	
 	public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 	public static final EnumProperty<DyeColor> COLOR = EnumProperty.of("color", DyeColor.class);

@@ -1,11 +1,5 @@
 package blue.endless.engination.block;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.jetbrains.annotations.Nullable;
 import org.quiltmc.qsl.block.entity.api.QuiltBlockEntityTypeBuilder;
 
@@ -25,13 +19,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 
 public class EnginationBlocks {
 	
-	//public static Map<String, List<Block>> BLOCK_GROUPS = new HashMap<>();
 	public static final Multimap<String, Block> BY_GROUP = MultimapBuilder.hashKeys().arrayListValues().build();
 	
 	public static TomatoBlock TOMATO_PLANT = null;
@@ -42,6 +33,7 @@ public class EnginationBlocks {
 	public static Block SPARK_BLOCK = new SparkBlock();
 	public static BlockEntityType<SparkBlockEntity> SPARK_BLOCK_ENTITY;
 	public static Block ELEVATOR;
+	public static Block ONE_SIDED;
 	
 	public static void init() {
 		block("conveyor", "conveyor",                new ConveyorBlock(2.0));
@@ -69,6 +61,8 @@ public class EnginationBlocks {
 		block("disappearing", "disguised_fall_through", new FallThroughBlock());
 		
 		ELEVATOR = block("elevator", "elevator", new ElevatorBlock());
+		
+		ONE_SIDED = block("one_sided", "one_sided", new OneSidedFloorBlock(Block.Settings.copy(ELEVATOR)));
 		
 		ITEM_BOX =  block("question", "item_box", new InventoryItemBox());
 		CREATIVE_ITEM_BOX =  block("question", "creative_item_box", InventoryItemBox.makeCreative());

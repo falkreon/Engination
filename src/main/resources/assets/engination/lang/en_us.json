@@ -36,10 +36,15 @@
 	"block.engination.item_box"                  : "Item Box",
 	"block.engination.creative_item_box"         : "Creative Item Box",
 	
-	"block.engination.tomato_plant"              : "Tomato",
+	"block.engination.elevator"                  : "Elevator",
+	"block.engination.one_sided"                 : "One-Sided Platform",
+	"block.engination.spark_block"               : "Sparkline",
+	
+	"block.engination.tomato_plant"              : "Tomato Plant",
 
 	"item.engination.celery" : "Celery",
 	"item.engination.tomato" : "Tomato",
 	"item.engination.tomato_seeds" : "Tomato Seeds",
-	"item.engination.creative_tomato" : "Creative Tomato"
+	"item.engination.creative_tomato" : "Creative Tomato",
+	"item.engination.sparkline_tool"  : "Sparkline Tool"
 }
