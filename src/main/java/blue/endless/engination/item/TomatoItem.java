@@ -33,8 +33,7 @@ public class TomatoItem extends Item {
 			SnowballEntity entity = new SnowballEntity(world, player);
 			entity.setItem(new ItemStack(EnginationItems.TOMATO));
 			
-			entity.setItem(new ItemStack(EnginationItems.TOMATO));//itemStack);
-			entity.setVelocity(player.getPitch(), player.getYaw(), 0.0f, 1.5f, 1.0f);
+			entity.setProperties(player, player.getPitch(), player.getYaw(), 0.0f, 1.5f, 1.0f);
 			world.spawnEntity(entity);
 		}
 		

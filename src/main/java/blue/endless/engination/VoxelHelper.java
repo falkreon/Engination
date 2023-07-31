@@ -9,6 +9,13 @@ import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.math.Vec3d;
 
 public class VoxelHelper {
+	
+	public static VoxelShape centeredCube(int radius) {
+		double min = 0.5 - (radius/16f);
+		double max = 0.5 + (radius/16f);
+		return VoxelShapes.cuboid(min, min, min, max, max, max);
+	}
+	
 	public static VoxelShape rotateHorizontal(VoxelShape v, int degrees) {
 		List<VoxelShape> boxes = new ArrayList<>();
 		

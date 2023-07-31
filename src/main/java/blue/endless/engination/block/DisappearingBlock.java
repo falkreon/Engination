@@ -74,6 +74,11 @@ public abstract class DisappearingBlock extends Block {
 	}
 	
 	@Override
+	public VoxelShape getSidesShape(BlockState state, BlockView world, BlockPos pos) {
+		return VoxelShapes.fullCube();
+	}
+	
+	@Override
 	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
 		world.setBlockState(pos, state.with(DISAPPEARED, false), FLAGS);
 	}

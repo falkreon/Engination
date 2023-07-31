@@ -14,6 +14,7 @@ import com.google.common.collect.MultimapBuilder;
 
 import blue.endless.engination.Grouped;
 import blue.endless.engination.block.entity.ItemBoxBlockEntity;
+import blue.endless.engination.block.entity.SparkBlockEntity;
 import blue.endless.engination.item.CosmeticBlockItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -38,6 +39,9 @@ public class EnginationBlocks {
 	public static Block ITEM_BOX;
 	public static Block CREATIVE_ITEM_BOX;
 	public static BlockEntityType<ItemBoxBlockEntity> ITEM_BOX_ENTITY;
+	public static Block SPARK_BLOCK = new SparkBlock();
+	public static BlockEntityType<SparkBlockEntity> SPARK_BLOCK_ENTITY;
+	public static Block ELEVATOR;
 	
 	public static void init() {
 		block("conveyor", "conveyor",                new ConveyorBlock(2.0));
@@ -64,27 +68,17 @@ public class EnginationBlocks {
 		block("disappearing", "fall_through", new FallThroughBlock());
 		block("disappearing", "disguised_fall_through", new FallThroughBlock());
 		
+		ELEVATOR = block("elevator", "elevator", new ElevatorBlock());
+		
 		ITEM_BOX =  block("question", "item_box", new InventoryItemBox());
 		CREATIVE_ITEM_BOX =  block("question", "creative_item_box", InventoryItemBox.makeCreative());
 		((InventoryItemBox) CREATIVE_ITEM_BOX).setReappearDelay(20*5);
 		
-		block("warpzone", "green_warp_pipe", new WarpPipe(PipeColor.GREEN, BlockSoundGroup.COPPER));
-		block("warpzone", "orange_warp_pipe", new WarpPipe(PipeColor.ORANGE, BlockSoundGroup.COPPER));
-		block("warpzone", "blue_warp_pipe", new WarpPipe(PipeColor.BLUE, BlockSoundGroup.COPPER));
-		block("warpzone", "gray_warp_pipe", new WarpPipe(PipeColor.GRAY, BlockSoundGroup.COPPER));
-		WarpPipe clearWarpPipe = (WarpPipe) block("warpzone", "clear_warp_pipe", new WarpPipe(
-				Block.Settings.copy(Blocks.IRON_BLOCK)
-					.mapColor(DyeColor.WHITE)
-					.sounds(BlockSoundGroup.GLASS)
-					.nonOpaque(),
-					PipeColor.CLEAR
-				));
-		clearWarpPipe.setClear();
-		block("warpzone", "warp_pipe_entrance", new WarpPipeEntrance());
-		
 		block("road", "road", new FastTravelBlock(0.2f));
 		block("road", "fast_road", new FastTravelBlock(0.4f));
 		block("road", "ultra_fast_road", new FastTravelBlock(0.6f));
+		
+		Registry.register(Registries.BLOCK, new Identifier("engination", "spark_block"), SPARK_BLOCK); //No corresponding BlockItem
 		
 		TOMATO_PLANT = new TomatoBlock(Block.Settings.copy(Blocks.WHEAT));
 		Registry.register(Registries.BLOCK, new Identifier("engination", "tomato_plant"), TOMATO_PLANT);
@@ -92,6 +86,9 @@ public class EnginationBlocks {
 		
 		ITEM_BOX_ENTITY = QuiltBlockEntityTypeBuilder.create(ItemBoxBlockEntity::new, ITEM_BOX, CREATIVE_ITEM_BOX).build();
 		Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("engination", "item_box"), ITEM_BOX_ENTITY);
+		
+		SPARK_BLOCK_ENTITY = QuiltBlockEntityTypeBuilder.create(SparkBlockEntity::new, SPARK_BLOCK).build();
+		Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("engination", "spark_block"), SPARK_BLOCK_ENTITY);
 	}
 
 	public static <T extends Block> T block(String group, String name, T block) {

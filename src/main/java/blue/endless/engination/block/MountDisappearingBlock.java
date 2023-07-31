@@ -57,9 +57,7 @@ public class MountDisappearingBlock extends DisappearingBlock {
 		if (state.get(DISAPPEARED)) {
 			return VoxelShapes.empty();
 		} else {
-			//return VoxelShapes.cube(0.01, 0.01, 0.01, 0.99, 0.99, 0.99);
 			return VoxelShapes.cuboid(0.005, 0.005, 0.005, 0.995, 0.995, 0.995);
-			//return VoxelShapes.fullCube();
 		}
 	}
 	

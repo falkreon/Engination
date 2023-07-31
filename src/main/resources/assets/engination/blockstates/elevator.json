@@ -1,0 +1,20 @@
+{
+	"multipart": [
+		{
+			"when": { "facing": "north" },
+			"apply": { "model": "engination:block/elevator", "y": 0 }
+		},
+		{
+			"when": { "facing": "east" },
+			"apply": { "model": "engination:block/elevator", "y": 90 }
+		},
+		{
+			"when": { "facing": "south" },
+			"apply": { "model": "engination:block/elevator", "y": 180 }
+		},
+		{
+			"when": { "facing": "west" },
+			"apply": { "model": "engination:block/elevator", "y": 270 }
+		}
+	]
+}

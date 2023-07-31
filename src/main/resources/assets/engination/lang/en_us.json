@@ -25,10 +25,10 @@
 	"block.engination.disappearing_iron_sword"   : "Disappearing Block - Iron Sword",
 	"block.engination.disappearing_gold_sword"   : "Disappearing Block - Gold Sword",
 	"block.engination.disappearing_diamond_sword": "Disappearing Block - Diamond Sword",
+	"block.engination.disappearing_mount_speed"  : "Disappearing Block - Equestrian",
+	"block.engination.disappearing_cart_speed"   : "Disappearing Block - Vehicles",
 	
 	"block.engination.disappearing_sprint_speed" : "Speed Block - Sprinting",
-	"block.engination.disappearing_mount_speed"  : "Speed Block - Equestrian",
-	"block.engination.disappearing_cart_speed"   : "Speed Block - Vehicles",
 	
 	"block.engination.fall_through"              : "Fall-Through Block",
 	"block.engination.disguised_fall_through"    : "Disguised Fall-Through Block",

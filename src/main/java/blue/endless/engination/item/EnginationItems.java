@@ -9,30 +9,27 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class EnginationItems {
-	public static TomatoItem       TOMATO;
-	public static TomatoItem       CREATIVE_TOMATO;
-	public static Item             CELERY;
-	public static AliasedBlockItem TOMATO_SEEDS;
+	
+	public static TomatoItem TOMATO = new TomatoItem(false);
+	public static TomatoItem CREATIVE_TOMATO = new TomatoItem(true);
+	public static AliasedBlockItem TOMATO_SEEDS = new AliasedBlockItem(EnginationBlocks.TOMATO_PLANT, new Item.Settings());
 	
 	public static final FoodComponent USELESS_FOOD = new FoodComponent.Builder()
 			.alwaysEdible()
 			.hunger(-1)
 			.build();
+	public static Item CELERY = new Item(new Item.Settings().food(USELESS_FOOD));
+	
+	public static Item SPARKLINE_TOOL = new SparklineTool();
 	
 	public static void init() {
-		TOMATO = new TomatoItem(false);
-		CREATIVE_TOMATO = new TomatoItem(true);
-		CELERY = new Item(new Item.Settings().food(USELESS_FOOD));
-		TOMATO_SEEDS = new AliasedBlockItem(EnginationBlocks.TOMATO_PLANT, new Item.Settings());
-		
 		Registry.register(Registries.ITEM, new Identifier("engination", "tomato"), TOMATO);
 		Registry.register(Registries.ITEM, new Identifier("engination", "creative_tomato"), CREATIVE_TOMATO);
-		
-		Registry.register(Registries.ITEM, new Identifier("engination", "celery"), CELERY);
 		Registry.register(Registries.ITEM, new Identifier("engination", "tomato_seeds"), TOMATO_SEEDS);
 		
+		Registry.register(Registries.ITEM, new Identifier("engination", "celery"), CELERY);
 		
-		
+		Registry.register(Registries.ITEM, new Identifier("engination", "sparkline_tool"), SPARKLINE_TOOL);
 		
 		//TODO: Get help on the FabricLootSupplierBuilder front, I'm either doing something wrong here or the API doesn't work.
 		

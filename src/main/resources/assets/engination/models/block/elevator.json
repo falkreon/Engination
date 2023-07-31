@@ -1,0 +1,80 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"0": "engination:block/elevator/top",
+		"1": "engination:block/elevator/side",
+		"particle": "engination:block/elevator/top"
+	},
+	"elements": [
+		{
+			"name": "Block",
+			"from": [0, 0, 0],
+			"to": [16, 3, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 3], "texture": "#1"},
+				"east": {"uv": [0, 0, 16, 3], "texture": "#1"},
+				"south": {"uv": [0, 0, 16, 3], "texture": "#1"},
+				"west": {"uv": [0, 0, 16, 3], "texture": "#1"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Color",
+			"from": [3, 3.01, 3],
+			"to": [13, 3.01, 13],
+			"faces": {
+				"up": {"uv": [6, 3, 16, 13], "texture": "#1", "tintindex": 0}
+			}
+		},
+		{
+			"name": "Arrow",
+			"from": [5, 3.02, 4],
+			"to": [11, 3.02, 7],
+			"faces": {
+				"up": {"uv": [0, 13, 6, 16], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [1.5, 2, 2.5],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [90, 0, 0],
+			"translation": [1.5, 2, 2.5],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [7.5, -2.75, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [90, 0, 0],
+			"translation": [7.5, -2.5, 0],
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"ground": {
+			"translation": [0, 1.25, 0],
+			"scale": [0.6, 0.6, 0.6]
+		},
+		"gui": {
+			"rotation": [120, 0, -30],
+			"translation": [2.5, -2, 0],
+			"scale": [0.8, 0.8, 0.8]
+		},
+		"head": {
+			"rotation": [-90, 180, 0],
+			"translation": [0, 0, -13]
+		},
+		"fixed": {
+			"rotation": [-90, 180, 0],
+			"translation": [0, 0, -7],
+			"scale": [1.2, 1.2, 1.2]
+		}
+	}
+}

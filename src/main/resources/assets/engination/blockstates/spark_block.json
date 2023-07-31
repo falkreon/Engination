@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"": {
+			"model": "engination:block/spark_block"
+		}
+	}
+}

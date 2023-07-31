@@ -1,6 +1,6 @@
 {
     "parent": "block/crop",
     "textures": {
-        "crop": "engination:blocks/tomato/1"
+        "crop": "engination:block/tomato/1"
     }
 }
