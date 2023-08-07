@@ -20,6 +20,7 @@ import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.random.RandomGenerator;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
@@ -95,15 +96,15 @@ public class InventoryItemBox extends ItemBox implements BlockEntityProvider {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-		if (!state.isOf(newState.getBlock())) {
-			BlockEntity blockEntity = world.getBlockEntity(pos);
-			if (blockEntity instanceof ItemBoxBlockEntity be) {
+		if (!state.isOf(newState.getBlock()) && world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS)) {
+			world.getBlockEntity(pos, EnginationBlocks.ITEM_BOX_ENTITY).ifPresent(be -> {
 				ItemScatterer.spawn(world, pos, be.getInventory(state, world, pos));
-				world.updateComparators(pos, this);
-			}
-
-			super.onStateReplaced(state, world, pos, newState, moved);
+			});
+			
+			world.updateComparators(pos, this);
 		}
+		
+		super.onStateReplaced(state, world, pos, newState, moved);
 	}
 	
 	public boolean isCreative() {

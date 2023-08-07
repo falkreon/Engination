@@ -43,9 +43,11 @@ public class ElevatorBlock extends Block {
 	public static final int MAX_DISTANCE = 32;
 	public static final int TELEPORT_COOLDOWN_TICKS = 10;
 	
+	public static final double PANEL_HEIGHT = 3/16d;
+	
 	public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 	public static final EnumProperty<DyeColor> COLOR = EnumProperty.of("color", DyeColor.class);
-	public static final VoxelShape SHAPE = VoxelShapes.cuboid(0, 0, 0, 1, 3/16f, 1);
+	public static final VoxelShape SHAPE = VoxelShapes.cuboid(0, 0, 0, 1, PANEL_HEIGHT, 1);
 	
 	public ElevatorBlock() {
 		super(Block.Settings.create().sounds(BlockSoundGroup.METAL).mapColor(DyeColor.WHITE).strength(1, 15).luminance((it)->8));
@@ -89,8 +91,11 @@ public class ElevatorBlock extends Block {
 				}
 			}
 			
-			
 			if (entity.getVelocity().y > 0) {
+				
+				//double heightAboveBlockFloor = entity.getY() - pos.getY();
+				//if (heightAboveBlockFloor > 0.7) return;
+				
 				//Activate UP!
 				BlockPos cur = pos.up();
 				BlockState curState = world.getBlockState(cur);
@@ -105,6 +110,9 @@ public class ElevatorBlock extends Block {
 					requestTeleport(world, cur, entity);
 				}
 			} else if (entity.isSneaking()) {
+				double heightAboveBlockFloor = entity.getY() - pos.getY();
+				if (heightAboveBlockFloor > PANEL_HEIGHT * 2) return;
+				
 				//Activate DOWN!
 				BlockPos cur = pos.down();
 				BlockState curState = world.getBlockState(cur);

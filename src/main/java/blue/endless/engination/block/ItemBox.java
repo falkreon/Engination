@@ -16,7 +16,6 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.random.RandomGenerator;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.TickPriority;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
@@ -87,23 +86,22 @@ public class ItemBox extends VentralPressureTriggeredBlock {
 	 * @param kickStrength How violently to dispense the item. 0.2 is default.
 	 */
 	public void dispenseItem(World world, BlockPos pos, ItemStack stack, double kickStrength) {
-		if (!world.isClient && !stack.isEmpty() && world.getGameRules().getBoolean(GameRules.DO_TILE_DROPS)) {
-			
-			double halfHeight = (double)EntityType.ITEM.getHeight() / 2.0;
-			double x = (double)pos.getX() + 0.5 + MathHelper.nextDouble(world.random, -0.25, 0.25);
-			double y = (double)pos.getY() + 0.5 + MathHelper.nextDouble(world.random, -0.25, 0.25) - halfHeight;
-			double z = (double)pos.getZ() + 0.5 + MathHelper.nextDouble(world.random, -0.25, 0.25);
-			double doubleKickStrength = kickStrength * 2;
-			double vx = world.random.nextDouble() * doubleKickStrength - kickStrength;
-			double vy = doubleKickStrength;
-			double vz = world.random.nextDouble() * doubleKickStrength - kickStrength;
-			
-			ItemEntity itemEntity = new ItemEntity(world, x, y, z, stack);
-			
-			itemEntity.setToDefaultPickupDelay();
-			itemEntity.setVelocity(vx, vy, vz);
-			
-			world.spawnEntity(itemEntity);
-		}
+		if (world.isClient || stack.isEmpty()) return;
+		
+		double halfHeight = (double)EntityType.ITEM.getHeight() / 2.0;
+		double x = (double)pos.getX() + 0.5 + MathHelper.nextDouble(world.random, -0.25, 0.25);
+		double y = (double)pos.getY() + 0.5 + MathHelper.nextDouble(world.random, -0.25, 0.25) - halfHeight;
+		double z = (double)pos.getZ() + 0.5 + MathHelper.nextDouble(world.random, -0.25, 0.25);
+		double doubleKickStrength = kickStrength * 2;
+		double vx = world.random.nextDouble() * doubleKickStrength - kickStrength;
+		double vy = doubleKickStrength;
+		double vz = world.random.nextDouble() * doubleKickStrength - kickStrength;
+		
+		ItemEntity itemEntity = new ItemEntity(world, x, y, z, stack);
+		
+		itemEntity.setToDefaultPickupDelay();
+		itemEntity.setVelocity(vx, vy, vz);
+		
+		world.spawnEntity(itemEntity);
 	}
 }

@@ -1,7 +1,10 @@
 package blue.endless.engination.block.entity;
 
 import blue.endless.engination.block.EnginationBlocks;
+import blue.endless.engination.block.InventoryItemBox;
 import blue.endless.engination.block.ItemBox;
+import blue.endless.engination.block.MaybeCreative;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.InventoryProvider;
 import net.minecraft.block.entity.BlockEntity;
@@ -19,12 +22,15 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.WorldAccess;
 
-public class ItemBoxBlockEntity extends BlockEntity implements InventoryProvider, NamedScreenHandlerFactory {
+public class ItemBoxBlockEntity extends BlockEntity implements InventoryProvider, NamedScreenHandlerFactory, MaybeCreative {
 	private DefaultedList<ItemStack> inventoryList = DefaultedList.ofSize(9, ItemStack.EMPTY);
 	private SidedInventory inventory = InventoryImpl.of(inventoryList, this);
+	private boolean creative = false;
 	
 	public ItemBoxBlockEntity(BlockPos pos, BlockState state) {
 		super(EnginationBlocks.ITEM_BOX_ENTITY, pos, state);
+		Block block = state.getBlock();
+		if (block instanceof InventoryItemBox box) creative = box.isCreative();
 	}
 	
 	@Override
@@ -77,5 +83,10 @@ public class ItemBoxBlockEntity extends BlockEntity implements InventoryProvider
 	@Override
 	public Text getDisplayName() {
 		return Text.translatable(getCachedState().getBlock().getTranslationKey());
+	}
+
+	@Override
+	public boolean requiresCreativeMode() {
+		return creative;
 	}
 }
