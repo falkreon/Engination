@@ -2,6 +2,7 @@ package blue.endless.engination.item;
 
 import blue.endless.engination.block.EnginationBlocks;
 import blue.endless.engination.block.SparkBlock;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
@@ -35,6 +36,10 @@ public class EnginationItems {
 		Registry.register(Registries.ITEM, new Identifier("engination", "celery"), CELERY);
 		
 		Registry.register(Registries.ITEM, new Identifier("engination", "sparkline_tool"), SPARKLINE_TOOL);
+		
+		DispenserBlock.registerBehavior(TOMATO, new TomatoItem.DispenserBehavior(TOMATO));
+		DispenserBlock.registerBehavior(CREATIVE_TOMATO, new TomatoItem.CreativeDispenserBehavior(CREATIVE_TOMATO));
+		
 		
 		//TODO: Get help on the FabricLootSupplierBuilder front, I'm either doing something wrong here or the API doesn't work.
 		
