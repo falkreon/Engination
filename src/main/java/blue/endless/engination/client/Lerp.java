@@ -1,8 +1,9 @@
 package blue.endless.engination.client;
 
 import org.joml.Vector3d;
-import org.quiltmc.loader.api.minecraft.ClientOnly;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
@@ -21,7 +22,7 @@ public class Lerp {
 		return new Vector3d(x,y,z);
 	}
 	
-	@ClientOnly
+	@Environment(EnvType.CLIENT)
 	public static Vector3d of(Vector3d a, Vector3d b, double t) {
 		return new Vector3d(
 				of(a.x, b.x, t),
@@ -30,7 +31,7 @@ public class Lerp {
 				);
 	}
 	
-	@ClientOnly
+	@Environment(EnvType.CLIENT)
 	public static Vec3d of(Vec3d a, Vec3d b, double t) {
 		return new Vec3d(
 				of(a.x, b.x, t),

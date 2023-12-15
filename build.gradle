@@ -1,5 +1,5 @@
 plugins {
-	id 'org.quiltmc.loom' version '1.+'
+	id 'fabric-loom' version '1.4-SNAPSHOT'
 }
 
 archivesBaseName = project.archives_base_name
@@ -8,10 +8,6 @@ group = project.maven_group
 
 repositories {
 	maven {
-		name 'Quilt'
-		url 'https://maven.quiltmc.org/repository/release'
-	}
-	maven {
 		name = "CottonMC"
 		url = "https://server.bbkr.space/artifactory/libs-release"
 	}
@@ -19,18 +15,19 @@ repositories {
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "org.quiltmc:quilt-mappings:${minecraft_version}+build.${quilt_mappings}:intermediary-v2"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
-	modImplementation "org.quiltmc:quilt-loader:${project.loader_version}"
-	//modImplementation "org.quiltmc:qsl:${qsl_version}+${minecraft_version}"
-	modImplementation "org.quiltmc.quilted-fabric-api:quilted-fabric-api:${quilted_fabric_api_version}-${minecraft_version}"
 	modImplementation include("io.github.cottonmc:LibGui:${libgui_version}")
 }
+
 
 processResources {
 	inputs.property "version", project.version
 
-	filesMatching("quilt.mod.json") {
+	filesMatching("fabric.mod.json") {
 		expand "version": project.version
 	}
 }

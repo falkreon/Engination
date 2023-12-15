@@ -3,7 +3,7 @@ package blue.endless.engination.client.screen;
 import io.github.cottonmc.cotton.gui.client.BackgroundPainter;
 import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.widget.WWidget;
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.DrawContext;
 import net.minecraft.util.Identifier;
 
 public class ImageBackgroundPainter implements BackgroundPainter {
@@ -22,7 +22,7 @@ public class ImageBackgroundPainter implements BackgroundPainter {
 	}
 	
 	@Override
-	public void paintBackground(GuiGraphics context, int left, int top, WWidget widget) {
+	public void paintBackground(DrawContext context, int left, int top, WWidget widget) {
 		//TODO: Auto-center the image on the widget and possibly add coverage rules to stretch, contain, or cover
 		
 		var matrices = context.getMatrices();

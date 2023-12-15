@@ -33,7 +33,7 @@ public class ConveyorBlock extends PressureTriggeredBlock {
 	
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext context) {
-		return this.getDefaultState().with(FACING, context.getPlayerFacing());
+		return this.getDefaultState().with(FACING, context.getHorizontalPlayerFacing());
 	}
 	
 	@Override

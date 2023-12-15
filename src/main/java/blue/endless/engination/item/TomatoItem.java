@@ -40,7 +40,7 @@ public class TomatoItem extends Item {
 			SnowballEntity entity = new SnowballEntity(world, player);
 			entity.setItem(new ItemStack(EnginationItems.TOMATO));
 			
-			entity.setProperties(player, player.getPitch(), player.getYaw(), 0.0f, 1.5f, 1.0f);
+			entity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0f, 1.5f, 1.0f);
 			world.spawnEntity(entity);
 		}
 		
@@ -71,9 +71,9 @@ public class TomatoItem extends Item {
 		
 		@Override
 		public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-			World world = pointer.getWorld();
+			World world = pointer.world();
 			Position position = DispenserBlock.getOutputLocation(pointer);
-			Direction direction = pointer.getBlockState().get(DispenserBlock.FACING);
+			Direction direction = pointer.state().get(DispenserBlock.FACING);
 			ProjectileEntity projectileEntity = this.createProjectile(world, position, stack);
 			projectileEntity.setVelocity(
 				direction.getOffsetX(), direction.getOffsetY() + 0.1, direction.getOffsetZ(), this.getForce(), this.getVariation()

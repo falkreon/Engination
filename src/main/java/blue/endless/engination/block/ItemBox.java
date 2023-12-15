@@ -15,10 +15,10 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.random.RandomGenerator;
-import net.minecraft.world.TickPriority;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
+import net.minecraft.world.tick.TickPriority;
 
 public class ItemBox extends VentralPressureTriggeredBlock {
 	
@@ -53,7 +53,7 @@ public class ItemBox extends VentralPressureTriggeredBlock {
 	}
 	
 	@Override
-	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
+	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		world.setBlockState(pos, state.with(DEPLETED, false), Block.NOTIFY_ALL);
 	}
 	

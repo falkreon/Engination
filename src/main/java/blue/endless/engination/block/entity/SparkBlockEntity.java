@@ -101,7 +101,7 @@ public class SparkBlockEntity extends BlockEntity {
 	}
 	
 	@Override
-	public NbtCompound toSyncedNbt() {
+	public NbtCompound toInitialChunkDataNbt() {
 		NbtCompound compound = new NbtCompound();
 		//if (previous != null) compound.put(PREVIOUS_KEY, NbtHelper.fromBlockPos(previous));
 		if (next != null) compound.put(NEXT_KEY, NbtHelper.fromBlockPos(next));
@@ -112,7 +112,7 @@ public class SparkBlockEntity extends BlockEntity {
 	
 	@Override
 	public Packet<ClientPlayPacketListener> toUpdatePacket() {
-		return BlockEntityUpdateS2CPacket.of(this);
+		return BlockEntityUpdateS2CPacket.create(this);
 	}
 	
 	

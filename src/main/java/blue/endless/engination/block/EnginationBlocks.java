@@ -1,7 +1,6 @@
 package blue.endless.engination.block;
 
 import org.jetbrains.annotations.Nullable;
-import org.quiltmc.qsl.block.entity.api.QuiltBlockEntityTypeBuilder;
 
 import com.google.common.collect.Multimap;
 import com.google.common.collect.MultimapBuilder;
@@ -10,6 +9,7 @@ import blue.endless.engination.Grouped;
 import blue.endless.engination.block.entity.ItemBoxBlockEntity;
 import blue.endless.engination.block.entity.SparkBlockEntity;
 import blue.endless.engination.item.CosmeticBlockItem;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntityType;
@@ -78,10 +78,10 @@ public class EnginationBlocks {
 		Registry.register(Registries.BLOCK, new Identifier("engination", "tomato_plant"), TOMATO_PLANT);
 		
 		
-		ITEM_BOX_ENTITY = QuiltBlockEntityTypeBuilder.create(ItemBoxBlockEntity::new, ITEM_BOX, CREATIVE_ITEM_BOX).build();
+		ITEM_BOX_ENTITY = FabricBlockEntityTypeBuilder.create(ItemBoxBlockEntity::new, ITEM_BOX, CREATIVE_ITEM_BOX).build();
 		Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("engination", "item_box"), ITEM_BOX_ENTITY);
 		
-		SPARK_BLOCK_ENTITY = QuiltBlockEntityTypeBuilder.create(SparkBlockEntity::new, SPARK_BLOCK).build();
+		SPARK_BLOCK_ENTITY = FabricBlockEntityTypeBuilder.create(SparkBlockEntity::new, SPARK_BLOCK).build();
 		Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier("engination", "spark_block"), SPARK_BLOCK_ENTITY);
 	}
 

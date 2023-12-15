@@ -1,17 +1,17 @@
 package blue.endless.engination.block.entity;
 
-import org.quiltmc.loader.api.minecraft.ClientOnly;
-
 import blue.endless.engination.Engination;
 import blue.endless.engination.block.InventoryItemBox;
 import blue.endless.engination.client.screen.ImageBackgroundPainter;
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
 import io.github.cottonmc.cotton.gui.client.BackgroundPainter;
+import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.cottonmc.cotton.gui.widget.WPlainPanel;
 import io.github.cottonmc.cotton.gui.widget.WPlayerInvPanel;
-import io.github.cottonmc.cotton.gui.widget.WItemSlot;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -60,7 +60,7 @@ public class ItemBoxGuiDescription extends SyncedGuiDescription {
 		root.validate(this);
 	}
 	
-	@ClientOnly
+	@Environment(EnvType.CLIENT)
 	@Override
 	public void addPainters() {
 		//Do not call super! We do not want the typical root painter!

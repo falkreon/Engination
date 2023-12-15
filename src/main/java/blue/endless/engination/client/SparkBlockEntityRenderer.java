@@ -1,9 +1,8 @@
 package blue.endless.engination.client;
 
-import com.mojang.blaze3d.vertex.VertexConsumer;
-
 import blue.endless.engination.block.entity.SparkBlockEntity;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.block.entity.BlockEntityRenderer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactory;

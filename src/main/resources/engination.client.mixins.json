@@ -3,7 +3,9 @@
 	"package": "blue.endless.engination.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"PlayerEventDebounceMixin"
+		"PlayerBehaviorLockableMixin",
+		"ClientPlayerEventCooldownMixin",
+		"SnowballTomatoSplashMixin"
 	],
 	
 	"injectors": {

@@ -16,12 +16,12 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.random.RandomGenerator;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.TickPriority;
 import net.minecraft.world.World;
+import net.minecraft.world.tick.TickPriority;
 
 public abstract class DisappearingBlock extends Block {
 	public static final BooleanProperty DISAPPEARED = BooleanProperty.of("disappeared");
@@ -79,7 +79,7 @@ public abstract class DisappearingBlock extends Block {
 	}
 	
 	@Override
-	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
+	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		world.setBlockState(pos, state.with(DISAPPEARED, false), FLAGS);
 	}
 	

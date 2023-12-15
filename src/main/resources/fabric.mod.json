@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "engination",
+	"version": "${version}",
+	"name": "Engination",
+	"description": "Gadgets and Blocks for Convention Centers and Adventure Maps",
+	"authors": [
+		"Falkreon"
+	],
+	"contact": {
+		"homepage": "https://github.com/falkreon/Engination",
+		"issues": "https://github.com/falkreon/Engination/issues",
+		"sources": "https://github.com/falkreon/Engination"
+	},
+	"license": "MIT",
+	"icon": "assets/engination/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"blue.endless.engination.Engination"
+		],
+		"client": [
+			"blue.endless.engination.client.EnginationClient"
+		]
+	},
+	"mixins": [
+		"engination.mixins.json",
+		{
+			"environment": "client",
+			"config": "engination.client.mixins.json"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.2",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*",
+		"libgui": ">=8.0.0"
+	}
+}

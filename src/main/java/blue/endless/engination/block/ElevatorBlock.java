@@ -1,24 +1,23 @@
 package blue.endless.engination.block;
 
-import org.quiltmc.qsl.networking.api.client.ClientPlayNetworking;
-
 import blue.endless.engination.Engination;
 import blue.endless.engination.EventCooldownable;
 
 import java.util.Set;
 
-import org.quiltmc.qsl.networking.api.PacketByteBufs;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.MovementFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.DyeItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.network.packet.s2c.play.PositionFlag;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -65,7 +64,7 @@ public class ElevatorBlock extends Block {
 	
 	@Override
 	public BlockState getPlacementState(ItemPlacementContext ctx) {
-		return getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
+		return getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing().getOpposite());
 	}
 	
 	@Override
@@ -154,7 +153,7 @@ public class ElevatorBlock extends Block {
 		}
 		
 		if (entity instanceof ServerPlayerEntity player) {
-			player.networkHandler.requestTeleport(x, y, z, yaw, 0, Set.of(MovementFlag.X, MovementFlag.Y, MovementFlag.Z, MovementFlag.Y_ROT));
+			player.networkHandler.requestTeleport(x, y, z, yaw, 0, Set.of(PositionFlag.X, PositionFlag.Y, PositionFlag.Z, PositionFlag.Y_ROT));
 		}
 		
 		world.playSound(null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 0.6f, 1.0f);

@@ -16,7 +16,7 @@ import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.random.RandomGenerator;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 @Mixin(SnowballEntity.class)
@@ -36,12 +36,12 @@ public abstract class SnowballTomatoSplashMixin extends ThrownItemEntity {
 		if (status == EntityStatuses.PLAY_DEATH_SOUND_OR_ADD_PROJECTILE_HIT_PARTICLES) {
 			if (getItem().getItem() instanceof TomatoItem) {
 				ParticleEffect particleEffect = this.getParticleParameters();
-				RandomGenerator rnd = getWorld().getRandom();
+				Random rnd = getWorld().getRandom();
 				int particles = 64;
 				
 				//This is client-only
 				@SuppressWarnings("resource")
-				ParticlesMode particlesMode = MinecraftClient.getInstance().options.getParticles().get();
+				ParticlesMode particlesMode = MinecraftClient.getInstance().options.getParticles().getValue();
 				if (particlesMode == ParticlesMode.DECREASED) {
 					particles = 16;
 				} else if (particlesMode == ParticlesMode.MINIMAL) {

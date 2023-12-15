@@ -2,21 +2,20 @@ package blue.endless.engination.client;
 
 import org.joml.Matrix4f;
 
-import com.mojang.blaze3d.vertex.VertexConsumer;
-
+import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.Vec3d;
 
 public class RenderHelper {
 	public static void cubeAround(MatrixStack matrices, VertexConsumer buf, int light, int overlay, double x, double y, double z, double r, int color) {
-		Matrix4f transform = matrices.peek().getModel();
+		Matrix4f transform = matrices.peek().getPositionMatrix();
 		
 		//+z face
 		
 		buf //bottomleft
 			.vertex(transform, (float) (x-r), (float) (y-r), (float) (z+r))
 			.color(color)
-			.uv(0, 1)
+			.texture(0, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 0, 1)
@@ -25,7 +24,7 @@ public class RenderHelper {
 		buf //bottomright
 			.vertex(transform, (float) (x+r), (float) (y-r), (float) (z+r))
 			.color(color)
-			.uv(1, 1)
+			.texture(1, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 0, 1)
@@ -34,7 +33,7 @@ public class RenderHelper {
 		buf //topright
 			.vertex(transform, (float) (x+r), (float) (y+r), (float) (z+r))
 			.color(color)
-			.uv(1, 0)
+			.texture(1, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 0, 1)
@@ -43,7 +42,7 @@ public class RenderHelper {
 		buf //topleft
 			.vertex(transform, (float) (x-r), (float) (y+r), (float) (z+r))
 			.color(color)
-			.uv(0, 0)
+			.texture(0, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 0, 1)
@@ -54,7 +53,7 @@ public class RenderHelper {
 		buf //bottomleft
 			.vertex(transform, (float) (x+r), (float) (y-r), (float) (z+r))
 			.color(color)
-			.uv(0, 1)
+			.texture(0, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(1, 0, 0)
@@ -63,7 +62,7 @@ public class RenderHelper {
 		buf //bottomright
 			.vertex(transform, (float) (x+r), (float) (y-r), (float) (z-r))
 			.color(color)
-			.uv(1, 1)
+			.texture(1, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(1, 0, 0)
@@ -72,7 +71,7 @@ public class RenderHelper {
 		buf //topright
 			.vertex(transform, (float) (x+r), (float) (y+r), (float) (z-r))
 			.color(color)
-			.uv(1, 0)
+			.texture(1, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(1, 0, 0)
@@ -81,7 +80,7 @@ public class RenderHelper {
 		buf //topleft
 			.vertex(transform, (float) (x+r), (float) (y+r), (float) (z+r))
 			.color(color)
-			.uv(0, 0)
+			.texture(0, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(1, 0, 0)
@@ -92,7 +91,7 @@ public class RenderHelper {
 		buf //bottomleft
 			.vertex(transform, (float) (x+r), (float) (y-r), (float) (z-r))
 			.color(color)
-			.uv(0, 1)
+			.texture(0, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 0, -1)
@@ -101,7 +100,7 @@ public class RenderHelper {
 		buf //bottomright
 			.vertex(transform, (float) (x-r), (float) (y-r), (float) (z-r))
 			.color(color)
-			.uv(1, 1)
+			.texture(1, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 0, -1)
@@ -110,7 +109,7 @@ public class RenderHelper {
 		buf //topright
 			.vertex(transform, (float) (x-r), (float) (y+r), (float) (z-r))
 			.color(color)
-			.uv(1, 0)
+			.texture(1, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 0, -1)
@@ -119,7 +118,7 @@ public class RenderHelper {
 		buf //topleft
 			.vertex(transform, (float) (x+r), (float) (y+r), (float) (z-r))
 			.color(color)
-			.uv(0, 0)
+			.texture(0, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 0, -1)
@@ -130,7 +129,7 @@ public class RenderHelper {
 		buf //bottomleft
 			.vertex(transform, (float) (x-r), (float) (y-r), (float) (z-r))
 			.color(color)
-			.uv(0, 1)
+			.texture(0, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(-1, 0, 0)
@@ -139,7 +138,7 @@ public class RenderHelper {
 		buf //bottomright
 			.vertex(transform, (float) (x-r), (float) (y-r), (float) (z+r))
 			.color(color)
-			.uv(1, 1)
+			.texture(1, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(-1, 0, 0)
@@ -148,7 +147,7 @@ public class RenderHelper {
 		buf //topright
 			.vertex(transform, (float) (x-r), (float) (y+r), (float) (z+r))
 			.color(color)
-			.uv(1, 0)
+			.texture(1, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(-1, 0, 0)
@@ -157,7 +156,7 @@ public class RenderHelper {
 		buf //topleft
 			.vertex(transform, (float) (x-r), (float) (y+r), (float) (z-r))
 			.color(color)
-			.uv(0, 0)
+			.texture(0, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(-1, 0, 0)
@@ -168,7 +167,7 @@ public class RenderHelper {
 		buf //bottomleft
 			.vertex(transform, (float) (x-r), (float) (y+r), (float) (z+r))
 			.color(color)
-			.uv(0, 1)
+			.texture(0, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 1, 0)
@@ -177,7 +176,7 @@ public class RenderHelper {
 		buf //bottomright
 			.vertex(transform, (float) (x+r), (float) (y+r), (float) (z+r))
 			.color(color)
-			.uv(1, 1)
+			.texture(1, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 1, 0)
@@ -186,7 +185,7 @@ public class RenderHelper {
 		buf //topright
 			.vertex(transform, (float) (x+r), (float) (y+r), (float) (z-r))
 			.color(color)
-			.uv(1, 0)
+			.texture(1, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 1, 0)
@@ -195,7 +194,7 @@ public class RenderHelper {
 		buf //topleft
 			.vertex(transform, (float) (x-r), (float) (y+r), (float) (z-r))
 			.color(color)
-			.uv(0, 0)
+			.texture(0, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, 1, 0)
@@ -206,7 +205,7 @@ public class RenderHelper {
 		buf //bottomleft
 			.vertex(transform, (float) (x+r), (float) (y-r), (float) (z+r))
 			.color(color)
-			.uv(0, 1)
+			.texture(0, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, -1, 0)
@@ -215,7 +214,7 @@ public class RenderHelper {
 		buf //bottomright
 			.vertex(transform, (float) (x-r), (float) (y-r), (float) (z+r))
 			.color(color)
-			.uv(1, 1)
+			.texture(1, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, -1, 0)
@@ -224,7 +223,7 @@ public class RenderHelper {
 		buf //topright
 			.vertex(transform, (float) (x-r), (float) (y-r), (float) (z-r))
 			.color(color)
-			.uv(1, 0)
+			.texture(1, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, -1, 0)
@@ -233,7 +232,7 @@ public class RenderHelper {
 		buf //topleft
 			.vertex(transform, (float) (x+r), (float) (y-r), (float) (z-r))
 			.color(color)
-			.uv(0, 0)
+			.texture(0, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal(0, -1, 0)
@@ -242,7 +241,7 @@ public class RenderHelper {
 	
 	public static void barLine(MatrixStack matrices, VertexConsumer buf, int light, int overlay, Vec3d a, Vec3d b, double thickness, int aColor, int bColor) {
 		
-		Matrix4f transform = matrices.peek().getModel();
+		Matrix4f transform = matrices.peek().getPositionMatrix();
 		
 		double ht = thickness / 2.0;
 		
@@ -263,7 +262,7 @@ public class RenderHelper {
 		buf //bottomleft
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(aColor)
-			.uv(0, 1)
+			.texture(0, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) up.x, (float) up.y, (float) up.z)
@@ -273,7 +272,7 @@ public class RenderHelper {
 		buf //bottomright
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(aColor)
-			.uv(1, 1)
+			.texture(1, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) up.x, (float) up.y, (float) up.z)
@@ -283,7 +282,7 @@ public class RenderHelper {
 		buf //topright
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(bColor)
-			.uv(1, 0)
+			.texture(1, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) up.x, (float) up.y, (float) up.z)
@@ -293,7 +292,7 @@ public class RenderHelper {
 		buf //topleft
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(bColor)
-			.uv(0, 0)
+			.texture(0, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) up.x, (float) up.y, (float) up.z)
@@ -305,7 +304,7 @@ public class RenderHelper {
 		buf //bottomleft
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(aColor)
-			.uv(0, 1)
+			.texture(0, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) -up.x, (float) -up.y, (float) -up.z)
@@ -315,7 +314,7 @@ public class RenderHelper {
 		buf //bottomright
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(aColor)
-			.uv(1, 1)
+			.texture(1, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) -up.x, (float) -up.y, (float) -up.z)
@@ -325,7 +324,7 @@ public class RenderHelper {
 		buf //topright
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(bColor)
-			.uv(1, 0)
+			.texture(1, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) -up.x, (float) -up.y, (float) -up.z)
@@ -335,7 +334,7 @@ public class RenderHelper {
 		buf //topleft
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(bColor)
-			.uv(0, 0)
+			.texture(0, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) -up.x, (float) -up.y, (float) -up.z)
@@ -347,7 +346,7 @@ public class RenderHelper {
 		buf //bottomleft
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(aColor)
-			.uv(0, 1)
+			.texture(0, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) right.x, (float) right.y, (float) right.z)
@@ -357,7 +356,7 @@ public class RenderHelper {
 		buf //bottomright
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(bColor)
-			.uv(1, 1)
+			.texture(1, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) right.x, (float) right.y, (float) right.z)
@@ -367,7 +366,7 @@ public class RenderHelper {
 		buf //topright
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(bColor)
-			.uv(1, 0)
+			.texture(1, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) right.x, (float) right.y, (float) right.z)
@@ -377,7 +376,7 @@ public class RenderHelper {
 		buf //topleft
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(aColor)
-			.uv(0, 0)
+			.texture(0, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) right.x, (float) right.y, (float) right.z)
@@ -389,7 +388,7 @@ public class RenderHelper {
 		buf //bottomleft
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(bColor)
-			.uv(0, 1)
+			.texture(0, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) -right.x, (float) -right.y, (float) -right.z)
@@ -399,7 +398,7 @@ public class RenderHelper {
 		buf //bottomright
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(aColor)
-			.uv(1, 1)
+			.texture(1, 1)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) -right.x, (float) -right.y, (float) -right.z)
@@ -409,7 +408,7 @@ public class RenderHelper {
 		buf //topright
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(aColor)
-			.uv(1, 0)
+			.texture(1, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) -right.x, (float) -right.y, (float) -right.z)
@@ -419,7 +418,7 @@ public class RenderHelper {
 		buf //topleft
 			.vertex(transform, (float) curPoint.x, (float) curPoint.y, (float) curPoint.z)
 			.color(bColor)
-			.uv(0, 0)
+			.texture(0, 0)
 			.overlay(overlay)
 			.light(light)
 			.normal((float) -right.x, (float) -right.y, (float) -right.z)

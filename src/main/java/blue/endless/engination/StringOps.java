@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.function.IntUnaryOperator;
 
-import org.quiltmc.loader.api.minecraft.ClientOnly;
-
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.Language;
 
@@ -28,7 +28,7 @@ public class StringOps {
 	}
 	
 	
-	@ClientOnly
+	@Environment(EnvType.CLIENT)
 	public static List<String> wordWrapClient(String str, int wrapWidth) {
 		IntUnaryOperator charWidthGetter = (int ch)->(int)MinecraftClient.getInstance().textRenderer.getWidth(""+(char)ch);
 		

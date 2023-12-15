@@ -19,7 +19,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.random.RandomGenerator;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -52,7 +52,7 @@ public class InventoryItemBox extends ItemBox implements BlockEntityProvider {
 		int slotToTake = sourceSlots.get(i);
 		ItemStack stack = ItemStack.EMPTY;
 		if (isCreative) {
-			stack = inv.getStack(slotToTake).withCount(1); // implicit copy
+			stack = inv.getStack(slotToTake).copyWithCount(1);
 		} else {
 			stack = inv.removeStack(slotToTake, 1);
 		}
@@ -61,7 +61,7 @@ public class InventoryItemBox extends ItemBox implements BlockEntityProvider {
 	}
 	
 	@Override
-	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, RandomGenerator random) {
+	public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
 		SidedInventory inv = getInventory(state, world, pos);
 		if (inv.isEmpty()) return;
 		
